@@ -5,14 +5,28 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Sakura">
 	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
+		<h1>Sakura Festival 2023</h1>
+		<p>Join us for a lively and colorful celebration of Japanese culture at our annual Sakura festival!</p>
+		<section id="youtube">
+			<h2>sakura festival 2022</h2>
+			<h3>post festival video</h3>
+			<iframe src="https://www.youtube.com/embed/vZGJPqfaOEA" title="Sakura Festival 2022 - See You Next Year :)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+		</section>
 	</main>
 </Layout>
 
 <style>
+	#youtube {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 
+		margin-bottom: 60px;
+	}
+iframe {
+	aspect-ratio: 16/9;
+	width: 80%;
+
+	max-width: 600px;
+}	
 </style>
