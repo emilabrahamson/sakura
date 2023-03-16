@@ -84,7 +84,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff; /* Replace with your desired background color */
+  background-color: var(--main-bg-color); /* Replace with your desired background color */
   padding: 10px;
 }
 
@@ -104,14 +104,20 @@ nav.mobile-nav {
   margin-left: 10px;
 }
 
+.icon-container img {
+  width: 30px; /* Replace with your desired icon size */
+  margin-right: 20px;
+}
 .overlay {
   display: none;
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8); /* Replace with your desired overlay color and transparency */
+  right: 0;
+  width: 250px;
+  height: 30%;
+
+  border-radius: 0 0 0 30px;
+  background-color: var(--secondary-bg-color); /* Replace with your desired overlay color and transparency */
 }
 
 .overlay-nav {
@@ -123,9 +129,11 @@ nav.mobile-nav {
 }
 
 .overlay-nav a {
-  color: #fff; /* Replace with your desired link color */
-  font-size: 24px; /* Replace with your desired font size */
-  margin-bottom: 20px;
+  color: var(--icon-color); /* Replace with your desired link color */
+  font-size: 1.5rem; /* Replace with your desired font size */
+  text-decoration: none;
+
+  margin-bottom: 10px;
 }
 
 .overlay-close {
@@ -136,6 +144,9 @@ nav.mobile-nav {
 
 .overlay-close img {
   width: 30px; /* Replace with your desired close icon size */
+
+  margin-top: 20px;
+  margin-right: 20px;
 }
 
 /* Desktop styles */
@@ -144,6 +155,10 @@ nav.mobile-nav {
   .icon-container {
     display: none;
   }
+
+  .logo-container img {
+  width: 100px; /* Replace with your desired logo size */
+}
 
   nav.mobile-nav {
     display: flex;
@@ -155,16 +170,22 @@ nav.mobile-nav {
 
   header {
     padding: 20px;
+
+    max-width: 1800px;
+    margin: auto;
   }
 
   nav.mobile-nav {
     display: flex;
+    margin-right: 40px;
   }
 
   nav.mobile-nav a {
-    color: #000; /* Replace with your desired link color */
-    font-size: 20px; /* Replace with your desired font size */
-    margin-left: 20px;
+    color: var(--icon-color); /* Replace with your desired link color */
+    font-size: 1.5rem; /* Replace with your desired font size */
+    margin-left: 40px;
+
+    text-decoration: none;
   }
 }
 
