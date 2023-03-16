@@ -1,6 +1,5 @@
 ---
 const { title } = Astro.props;
-
 ---
 
 <!DOCTYPE html>
@@ -13,31 +12,42 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<header>
-			<a href="/" class="logo"><img src="icons/logo.svg" alt=""></a>
-			<button id="burger-menu">
-			  <span class="burger-menu-icon"></span>
-			  <span class="burger-menu-label">Menu</span>
-			</button>
-			<nav id="navbar">
-			  <ul>
-				<li><a href="/">Home</a></li>
-				<li><a href="about_us">About Us</a></li>
-				<li><a href="program">Program</a></li>
-			  </ul>
-			</nav>
-		  </header>
-		<slot />
-		<footer>
+        <header>
+            <div class="logo-container">
+              <a href="/"><img src="../icons/logo.svg" alt="Sakura Logo"></a>
+            </div>
+            <nav class="mobile-nav">
+              <a href="/">Home</a>
+              <a href="about_us">About Us</a>
+              <a href="program">Program</a>
+            </nav>
+            <div class="icon-container">
+              <img id="icon" src="../icons/bars.svg" alt="Burger Menu">
+            </div>
+          </header>
+          <div id="overlay" class="overlay">
+            <nav class="overlay-nav">
+              <a href="/">Home</a>
+              <a href="about_us">About Us</a>
+              <a href="program">Program</a>
+            </nav>
+            <div id="close-icon" class="overlay-close">
+              <img src="../icons/close.svg" alt="Close icon">
+            </div>
+          </div>          
+        <slot />
+        <footer>
 
-		</footer>
-	</body>
+        </footer>
+    </body>
 </html>
 
 <style>
 /* ------------------------- Custom-properties ------------------------------ */
 html {
 	--main-bg-color: #F6EEEE;
+  --secondary-bg-color: #FE908F; 
+  --icon-color: #5E7468;
 
 }
 
@@ -67,133 +77,110 @@ img {
 }
 
 
+/* -------------------------- Menu -------------------------------- */
+/* Mobile styles */
 
-
-
-
-
-/*---------------------------- Burger menu ----------------------- */
-/* Styles for desktop navigation menu */
-#navbar ul {
+header {
   display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff; /* Replace with your desired background color */
+  padding: 10px;
 }
 
-#navbar li {
-  margin: 0 20px;
+.logo-container {
+  flex-grow: 1;
 }
 
-#navbar a {
-  color: #333;
-  text-decoration: none;
+.logo-container img {
+  width: 70px; /* Replace with your desired logo size */
 }
 
-/* Styles for mobile burger menu */
-#burger-menu {
+nav.mobile-nav {
   display: none;
 }
 
-#burger-menu .burger-menu-icon {
-  display: block;
-  width: 30px;
-  height: 4px;
-  background: #333;
-  margin-bottom: 5px;
-  position: relative;
-  transition: transform 0.3s ease-in-out;
+.icon-container {
+  margin-left: 10px;
 }
 
-#burger-menu .burger-menu-icon:before,
-#burger-menu .burger-menu-icon:after {
-  content: "";
-  display: block;
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: #333;
+  background-color: rgba(0, 0, 0, 0.8); /* Replace with your desired overlay color and transparency */
+}
+
+.overlay-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.overlay-nav a {
+  color: #fff; /* Replace with your desired link color */
+  font-size: 24px; /* Replace with your desired font size */
+  margin-bottom: 20px;
+}
+
+.overlay-close {
   position: absolute;
-  left: 0;
-  transition: transform 0.3s ease-in-out;
-}
-
-#burger-menu .burger-menu-icon:before {
-  top: -10px;
-}
-
-#burger-menu .burger-menu-icon:after {
   top: 10px;
+  right: 10px;
 }
 
-#burger-menu.active .burger-menu-icon {
-  transform: rotate(45deg);
+.overlay-close img {
+  width: 30px; /* Replace with your desired close icon size */
 }
 
-#burger-menu.active .burger-menu-icon:before {
-  transform: rotate(90deg) translate(0, 10px);
-}
+/* Desktop styles */
 
-#burger-menu.active .burger-menu-icon:after {
-  transform: rotate(-90deg) translate(0, -10px);
-}
-
-
-
-/* -------------------------------- Media query for mobile devices  --------------------------------*/
-@media (max-width: 768px) {
-	header {
-		display: flex;
-		flex-direction: row;
-	}
-  #navbar {
+@media (min-width: 768px) {
+  .icon-container {
     display: none;
   }
-  
-  /* Show burger menu on mobile devices */
-  #burger-menu {
-    display: block;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 999;
 
-	margin-top: 20px;
+  nav.mobile-nav {
+    display: flex;
   }
-  
-  /* Styles for mobile burger menu */
-  #burger-menu .burger-menu-label {
+
+  .overlay {
     display: none;
   }
-  
-  /* Show navigation menu on click */
-  #burger-menu.active + #navbar {
-    display: block;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background: #fff;
-    width: 100%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+
+  header {
+    padding: 20px;
   }
-  
-  #navbar li {
-    display: block;
-    margin: 20px 0;
+
+  nav.mobile-nav {
+    display: flex;
+  }
+
+  nav.mobile-nav a {
+    color: #000; /* Replace with your desired link color */
+    font-size: 20px; /* Replace with your desired font size */
+    margin-left: 20px;
   }
 }
-
 
 </style>
 
 <script>
-// Toggle navigation menu on burger menu click
-document.getElementById("burger-menu").addEventListener("click", function() {
-  this.classList.toggle("active");
+const icon = document.getElementById('icon');
+const overlay = document.getElementById('overlay');
+const closeIcon = document.getElementById('close-icon');
+
+icon.addEventListener('click', () => {
+    console.log('clicked');
+  overlay.style.display = 'block';
 });
 
-
-
+closeIcon.addEventListener('click', () => {
+  overlay.style.display = 'none';
+});
 </script>
