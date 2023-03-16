@@ -37,7 +37,34 @@ const { title } = Astro.props;
           </div>          
         <slot />
         <footer>
-
+          <div id="info">
+            <h4>Sakura</h4>
+            <p class="f_margin">c/o Embassy Of Japan</p>
+            <p>Havneholmen 25, 9F</p>
+            <p>1561 København V</p>
+          </div>
+          <div id="contact">
+            <h4>Contact</h4>
+            <a href="tel:+4533455151">tlf: (+45) 3345 5121</a>
+            <p class="f_margin">fax: (+45) 3311 3377</p>
+            <a href="mailto:info.cph@ch.mofa.go.jp">E-mail: info.cph@ch.mofa.go.jp</a>
+          </div>
+          <div id="volunteer">
+            <h4>Become a Volunteer</h4>
+            <form name="Become a Volunteer" method="post" data-netlify="true">
+              <label for="name">
+                <input class="form_style" placeholder="fx. Torben Hansen" id="name" name="name" required type="text">
+              </label>
+              <label for="email">
+                <input class="form_style" placeholder="fx. torben_h27@gmail.com" id="email" name="email" required type="email">
+              </label>
+              <button type="submit">Sign Up</button>
+            </form>
+          </div>
+          <div id="socials">
+            <a target="_blank" href="https://www.instagram.com/copenhagensakurafestival/"><img src="../icons/instagram.svg" alt="Instagram Link"></a>
+            <a target="_blank" href="https://www.facebook.com/copenhagensakurafestival"><img src="../icons/facebook.svg" alt="Facebook Link"></a>
+          </div>
         </footer>
     </body>
 </html>
@@ -46,7 +73,8 @@ const { title } = Astro.props;
 /* ------------------------- Custom-properties ------------------------------ */
 html {
 	--main-bg-color: #F6EEEE;
-  --secondary-bg-color: #FE908F; 
+  --secondary-bg-color: #fccdcc; 
+  --third-bg-color: #FE908F; 
   --icon-color: #5E7468;
 
 }
@@ -149,6 +177,101 @@ nav.mobile-nav {
   margin-right: 20px;
 }
 
+/* --------------------------- Footer ---------------------- */
+footer {
+  display: flex;
+  flex-direction: column;
+ 
+  background-color: var(--secondary-bg-color); 
+  padding-left: 30px;
+  padding-top: 40px;
+}
+
+footer h4 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  text-transform: uppercase;
+
+  margin-bottom: 10px;
+}
+
+footer p {
+  font-size: 1rem;
+  font-weight: 200;
+  color: #5f5f5f;
+}
+
+footer a {
+  font-size: 1rem;
+  font-weight: 200;
+  color: #5f5f5f;
+  text-decoration: none;
+}
+
+.f_margin {
+  margin-bottom: 20px;
+}
+
+footer div:not(#volunteer) {
+  margin-bottom: 40px;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form_style {
+  background-color: var(--third-bg-color);
+  border: solid 2px #fb7f7d;
+  border-radius: 15px;
+
+  padding-left: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  width: 250px;
+  height: 40px;
+
+  color: black;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+form button {
+  background-color: var(--third-bg-color);
+  border: solid 2px #fb7f7d;
+  border-radius: 20px;
+
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  width: 150px;
+  
+
+  color: black;
+  font-size: 1rem;
+  font-weight: 300;
+  text-align: left;
+}
+
+#socials {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+ 
+  margin-top: 20px;
+  margin-right: 25px;
+}
+
+#socials img {
+  width: 50px;
+  margin-right: 5px;
+}
+
 /* Desktop styles */
 
 @media (min-width: 768px) {
@@ -186,6 +309,25 @@ nav.mobile-nav {
     margin-left: 40px;
 
     text-decoration: none;
+  }
+
+  nav.mobile-nav a:hover {
+    text-decoration: underline;
+  }
+
+  /* ------------------- Footer -------------------- */
+  footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  #socials {
+    justify-content: flex-start;
   }
 }
 
