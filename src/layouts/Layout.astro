@@ -14,10 +14,9 @@ const { title } = Astro.props;
 	<body>
         <header>
             <div class="logo-container">
-              <a href="/"><img src="../icons/logo.svg" alt="Sakura Logo"></a>
+              <a href="/"><img src="../icons/logoLOGO.png" alt="Sakura Logo"></a>
             </div>
             <nav class="mobile-nav">
-              <a href="/">Home</a>
               <a href="about_us">About Us</a>
               <a href="program">Program</a>
             </nav>
@@ -27,7 +26,6 @@ const { title } = Astro.props;
           </header>
           <div id="overlay" class="overlay">
             <nav class="overlay-nav">
-              <a href="/">Home</a>
               <a href="about_us">About Us</a>
               <a href="program">Program</a>
             </nav>
@@ -142,8 +140,8 @@ nav.mobile-nav {
   position: fixed;
   top: 0;
   right: 0;
-  width: 250px;
-  height: 30%;
+  width: 100%;
+  height: 100%;
 
   border-radius: 0 0 0 30px;
   background-color: var(--secondary-bg-color); /* Replace with your desired overlay color and transparency */
@@ -159,10 +157,10 @@ nav.mobile-nav {
 
 .overlay-nav a {
   color: var(--icon-color); /* Replace with your desired link color */
-  font-size: 1.5rem; /* Replace with your desired font size */
+  font-size: 3rem; /* Replace with your desired font size */
   text-decoration: none;
 
-  margin-bottom: 10px;
+  margin-bottom: 40px;
 }
 
 .overlay-close {
