@@ -5,13 +5,26 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Sakura">
 	<main>
-		<section>
-			<h1>Sakura Festival 2023</h1>
-			<p>Join us for a lively and colorful celebration of Japanese culture at our annual Sakura festival!</p>
-			<a href="program">2023 Program 	&#8594</a>
+		<section class="bubble_grid">
+			<div class="grid_flex">
+				<h1>Sakura Festival 2023</h1>
+			    <p>Join us for a lively and colorful celebration of Japanese culture at our annual Sakura festival!</p>
+			    <a class="forside_knap" href="program">2023 Program 	&#8594</a>
+			</div>
+			
 			<img src="../icons/bubble.svg" alt="baggrundsgrafik">
 		</section>
-		<img src="../img/gren.png" alt="blomst gren">
+		<img class="forsidegren" src="../img/gren.png" alt="forsidegren">
+
+		<section class="bubble_grid1">
+			<div class="grid_flex1">
+				<h2>Sakura Festival 2022</h2>
+				<p>Post Festival Video</p>
+				<iframe src="https://www.youtube.com/embed/vZGJPqfaOEA" title="Sakura Festival 2022 - See You Next Year :)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+			</div>
+			<img src="../icons/bubble.svg" alt="baggrundsgrafik">
+
+		</section>
 	</main>
 </Layout>
 
@@ -21,17 +34,88 @@ import Layout from '../layouts/Layout.astro';
 		max-width:1200px;
 		margin: auto;
 	}
-	#youtube {
+
+	.forside_knap {
+		text-transform: uppercase;
+		font-size: 1rem;
+		color: black;
+		text-decoration: none;
+		background-color: var(--third-bg-color);
+		border: 2px solid #000000;
+		border-radius: 20px;
+		padding: 12px;
+	}
+
+	.bubble_grid {
+		display: grid;
+		grid-template-columns: 3fr 1fr;
+	}
+
+	.bubble_grid p {
+		margin-bottom: 30px;
+	}
+
+	.bubble_grid img {
+		grid-column: 1 /span 2;
+		grid-row: 1;
+		width: 400px;
+	}
+
+	.grid_flex {
+		grid-column: 1;
+		grid-row: 1;
+		z-index: 3;
+		align-self: center;
+		padding-left: 22%;
+	}
+
+	
+	.forsidegren {
+		width: 50%;
+		z-index: 4;
+		left: 10%;
+		top: 15%;
+		position: absolute;
+		rotate: 30deg;
+		overflow: hidden;
+
+	}
+
+	.bubble_grid1 {
+		display: grid;
+		grid-template-columns: 1fr;
+		margin-top: 30px;
+
+	}
+	
+	.grid_flex1 {
+		grid-column: 1;
+		grid-row: 1;
+		z-index: 3;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-
-		margin-bottom: 60px;
+	
 	}
+
+	.bubble_grid1 img {
+		grid-column: 1;
+		grid-row: 1;
+		width: 400px;
+	}
+
+
 iframe {
 	aspect-ratio: 16/9;
-	width: 80%;
+	width: 62%;
 
 	max-width: 600px;
 }	
+
+.bubble_grid1 h2 {
+padding-top: 20px;
+margin-bottom: 0;
+}
+
+
 </style>
