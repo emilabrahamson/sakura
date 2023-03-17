@@ -12,8 +12,8 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Event">
 <main>
-    <h2>PROGRAM</h2>
-    <h1>TITLE OF EVENT</h1>
+    <h2 class="center">PROGRAM</h2>
+    <h1 class="center">TITLE OF EVENT</h1>
     <div id="grid1-2">
     <section class="container_sv">
 <h3>Scene</h3>
@@ -35,5 +35,8 @@ import Layout from "../layouts/Layout.astro";
     #grid1-2 {
         display: grid;
         grid-template-columns: 1fr 2fr;
+    }
+    .center {
+        text-align: center;
     }
 </style>
