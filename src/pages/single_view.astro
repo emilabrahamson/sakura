@@ -12,22 +12,41 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Event">
 <main>
-    <h2>PROGRAM</h2>
-    <h1>TITLE OF EVENT</h1>
+    <h2 class="center">PROGRAM</h2>
+    <h1 class="center">TITLE OF EVENT</h1>
     <div id="grid1-2">
-    <section class="container_sv">
+    <div id="container_sv">
+        <img src="../icons/svbubble.png" alt="background">
 <h3>Scene</h3>
 <p>Main stage</p>
 <h3>Show</h3>
 <p>Saturday, April 22</p>
 <h3>More about the event</h3>
 <p>Link</p>
-    </section>
+    </div>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus dolor soluta, pariatur delectus dignissimos itaque. Culpa cumque sunt molestiae, facilis reprehenderit aut porro repellendus quam autem pariatur hic voluptas officiis facere distinctio doloribus alias eius aliquam sit illum quis. Delectus aperiam consequatur quae vel maxime?</p>
 </div>
-<h2>SEE MORE</h2>
+<h2 class="center">SEE MORE</h2>
 <div id="grid1-1-1">
+    <section><img src="" alt=""><p>Tea drinking</p></section>
+    <section><img src="" alt=""><p>Tea drinking</p></section>
     <section><img src="" alt=""><p>Tea drinking</p></section>
 </div>
 </main>
 </Layout>
+<style>
+    #grid1-2 {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+    .center {
+        text-align: center;
+    }
+    #container_sv{
+        display: block;
+    }
+    #grid1-1-1 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+</style>

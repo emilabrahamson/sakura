@@ -2,5 +2,77 @@
 import Layout from "../layouts/Layout.astro";
 ---
 <Layout title="About Us">
-
+<main>
+    <div class="tekst">
+        <h1>ABOUT SAKURA FESTIVAL</h1>
+        <div class="tekst1">
+        <h2>History</h2>
+        <p>The Committee of the Copenhagen Sakura Festival was established in February, 2008 to arrange the cultural event Copenhagen Sakura Festival with the help of the Japanese 
+Embassy in Denmark, the Municipality of Copenhagen and other Japan-related cultural and private organizations.
+The original idea came from the noble deed of donation of 200 cherry blossom (Sakura) trees by Mr. Seiichi Takaki, President of Andersen Institute of Bread & Life, the holding company of Andersen Group of Hiroshima City, and the employees of the company. 
+The donated trees were planted in Langelinie Park. Mr. Takaki is Honorary Consul of Denmark and he was appointed to the honorable position of ambassador of H.C. Andersen’s birthday in 2005. 
+</p>
+        </div>
+        <div class="tekst2">
+<h2>The goal</h2>
+        <p>The donated Sakura trees were planted in Langelinie Park. In Japan people love and admire Sakura blossom and almost everybody go out to enjoy its beauty together with families, friends, lovers, office-mates and so forth wherever and whenever Sakura bloom. Once a year Sakura connects people and people meet people under Sakura trees. It is also the utmost and fundamental goal of the Committee.
+The Committee has an honor to have Honorable Chairpersons H.E. the Ambassador of Japan to Denmark and Lord Mayor of the City of Copenhagen. 
+The Committee consists of representatives of Japan related business, cultural and private organizations, the Municipality of Copenhagen and the Japanese Embassy.</p>
+        </div>
+        <img src="../icons/bubble.svg" alt="Bagrundsgarfik">
+    </div>
+</main>
 </Layout>
+<style>
+    main {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    h1 {
+        font-size: 1.5rem;
+        font-weight: 200;
+        text-align: center;
+    }
+    h2 {
+        margin-top: 50px;
+        font-weight: 400;
+    }
+.tekst img {
+display: none;
+}
+@media (min-width: 768px) {
+        h1 {
+        font-size: 2rem;
+        font-weight: 200;
+        text-align: center;
+        grid-row: 1;
+        grid-column: 1 /span 2;
+        z-index: 3;
+    }
+.tekst {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 8fr;
+    column-gap: 50px;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.tekst img {
+    display: block;
+    grid-column: 1 /span 2;
+    grid-row: 1 /span 2;
+    justify-self: center;   
+    width: 1000px; 
+}
+}
+.tekst1 {
+    grid-row: 2;
+    grid-column: 1;
+    z-index: 3;
+}
+.tekst2 {
+    grid-row: 2;
+    grid-column: 2;
+    z-index: 3;
+}
+</style>
