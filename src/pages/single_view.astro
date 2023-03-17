@@ -15,14 +15,14 @@ import Layout from "../layouts/Layout.astro";
     <h2 class="center">PROGRAM</h2>
     <h1 class="center">TITLE OF EVENT</h1>
     <div id="grid1-2">
-    <div id="container_sv">
-        <img src="../icons/svbubble.png" alt="background">
+    <div id="container_sv">      
 <h3>Scene</h3>
 <p>Main stage</p>
 <h3>Show</h3>
 <p>Saturday, April 22</p>
 <h3>More about the event</h3>
 <p>Link</p>
+ <img src="../icons/svbubble.png" alt="background">
     </div>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus dolor soluta, pariatur delectus dignissimos itaque. Culpa cumque sunt molestiae, facilis reprehenderit aut porro repellendus quam autem pariatur hic voluptas officiis facere distinctio doloribus alias eius aliquam sit illum quis. Delectus aperiam consequatur quae vel maxime?</p>
 </div>
@@ -35,6 +35,20 @@ import Layout from "../layouts/Layout.astro";
 </main>
 </Layout>
 <style>
+     main {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    #container_sv img {
+display: none;
+}
+#container_sv img {
+    display: block;
+    grid-column: 1 /span 2;
+    grid-row: 1 /span 2;
+    justify-self: center;   
+    width: 300px;
+    }
     #grid1-2 {
         display: grid;
         grid-template-columns: 1fr 2fr;
