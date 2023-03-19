@@ -1,12 +1,144 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
 ---
 <Layout title="Program">
   <main>
-    <h1>Program</h1>
-    <h2>Saturday</h2>
-    <p></p>
+    <h1>Program 2023</h1>
+    <div id="wrapper" >
+     <div>
+        <h2>Saturday</h2>
+        <p>22. April </p>
+        <section id="saturday" class="program_wrapper">
+          <h3>Main Stage</h3>
+          <div id="sa_main" class="shelf">
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+          </div>
+          <h3>Second Stage</h3>
+          <div id="sa_second" class="shelf">
+    
+          </div>
+          <h3>On The Lawn</h3>
+          <div id="sa_lawn" class="shelf">
+            
+          </div>
+        </section>
+     </div>
+     <div>
+      <h2>Sunday</h2>
+      <p>23. April </p>
+      <section id="sunday" class="program_wrapper">
+        <h3>Main Stage</h3>
+        <div id="su_main" class="shelf">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </div>
+        <h3>Second Stage</h3>
+        <div id="su_second" class="shelf">
+  
+        </div>
+        <h3>On The Lawn</h3>
+        <div id="su_lawn" class="shelf">
+          
+        </div>
+      </section>
+    </div>
+    </div>
 
   </main>
 </Layout>
+
+<style>
+  main {
+    margin-left: 5%;
+  }
+  #wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+
+    gap: 30px;
+    text-align: center;
+
+    margin-bottom: 50px;
+  }
+
+  h2 {
+    margin: 0;
+    color: #5E7468;
+  }
+
+  #wrapper > div > p {
+    margin: 0;
+  }
+
+  h3 {
+    margin: 0;
+
+    color: #5E7468;
+    font-weight: 400;
+  }
+
+  
+  #saturday {
+    grid-column: 1;
+  }
+
+  #sunday {
+    grid-column: 2;
+  }
+
+  .program_wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .shelf {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    row-gap: 10px;
+  }
+
+  @media (min-width: 768px) {
+    main{
+      max-width: 1400px;
+      margin: auto;
+    }
+
+    #wrapper {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 10px;
+
+      overflow-x: unset;
+    }
+
+    h2 {
+      text-align: start;
+    }
+
+    #wrapper > div > p {
+      text-align: start;
+    }
+
+    .shelf {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 330px));
+      column-gap: 40px;
+    }
+  }
+</style>
  
