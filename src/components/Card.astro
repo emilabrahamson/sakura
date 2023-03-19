@@ -1,14 +1,14 @@
 ---
-
+const {link, img, time, name, artist} = Astro.props;
 ---
 <article>
-    <a href="#">
+    <a href={link}>
         <div>
-            <img src="../img/test_img.webp" alt="Billede af aktivitet">
-            <p class="tidspunkt">10:00-10:45</p>
+            <img src={img} alt="Billede af aktivitet">
+            <p class="tidspunkt">{time}</p>
         </div>
-        <h4>Waidaiko</h4>
-        <p>Seidokan</p>
+        <h4>{name}</h4>
+        <p>{artist}</p>
     </a>
 </article>
 
