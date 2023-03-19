@@ -3,10 +3,10 @@ import Layout from "../layouts/Layout.astro";
 ---
 <Layout title="About Us">
 <main>
-    <div>
-    <img src="" alt="">
-    <img src="" alt="">
-    <img src="" alt="">
+    <div class="billedermobil">
+    <img src="../img/billede1.png" alt="Skal udskiftes med det rigte billede">
+    <img src="../img/billede2.png" alt="Skal udskiftes med det rigte billede">
+    <img src="../img/billede3.png" alt="Skal udskiftes med det rigte billede">
     </div>
     <div class="tekst">
         <h1>ABOUT SAKURA FESTIVAL</h1>
@@ -26,10 +26,10 @@ The Committee consists of representatives of Japan related business, cultural an
         </div>
         <img src="../icons/bubble.svg" alt="Bagrundsgarfik">
     </div>
-    <div>
-    <img src="" alt="">
-    <img src="" alt="">
-    <img src="" alt="">
+    <div class="billederdesktop">
+    <img src="../img/billede1.png" alt="Skal udskiftes med det rigte billede">
+    <img src="../img/billede2.png" alt="Skal udskiftes med det rigte billede">
+    <img src="../img/billede3.png" alt="Skal udskiftes med det rigte billede">
     </div>
 </main>
 </Layout>
@@ -50,7 +50,37 @@ The Committee consists of representatives of Japan related business, cultural an
 .tekst img {
 display: none;
 }
+.billedermobil img {
+max-width: 100%;
+}
+.tekst1 {
+    grid-row: 2;
+    grid-column: 1;
+    z-index: 3;
+
+    padding-top: 45px;
+}
+.tekst2 {
+    grid-row: 2;
+    grid-column: 2;
+    z-index: 3;
+
+    padding-top: 45px;
+}
 @media (min-width: 768px) {
+    .billedermobil img {
+        display: none;
+    }
+    .billederdesktop img {
+        max-width: 100%;
+    }
+    .billederdesktop {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+        margin-top: 3%;
+        margin-bottom: 5%;
+    }
         h1 {
         font-size: 2rem;
         font-weight: 200;
@@ -79,19 +109,5 @@ display: none;
     width: 1100px;
     rotate: 10deg;
 }
-}
-.tekst1 {
-    grid-row: 2;
-    grid-column: 1;
-    z-index: 3;
-
-    padding-top: 45px;
-}
-.tekst2 {
-    grid-row: 2;
-    grid-column: 2;
-    z-index: 3;
-
-    padding-top: 45px;
 }
 </style>
