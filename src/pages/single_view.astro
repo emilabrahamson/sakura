@@ -20,6 +20,10 @@ function getEvent(){
 
 function visEvent (){
     console.log("visEvents")
+    document.querySelector(".scene p").textContent = events.scene;
+    document.querySelector(".date p").textContent = events.date;
+    document.querySelector(".center h1").textContent = events.name;
+    document.querySelector(".center h2").textContent = events.artist;
 
 }
 
@@ -37,9 +41,9 @@ import Layout from "../layouts/Layout.astro";
     <div id="grid1-2">
     <div id="container_sv">      
 <h3>Scene</h3>
-<p>Main stage</p>
-<h3>Show</h3>
-<p>Saturday, April 22</p>
+<p class="scene">Main stage</p>
+<h3>Date</h3>
+<p class="date">Saturday, April 22</p>
 <h3>More about the event</h3>
 <p>Link</p>
     </div>
