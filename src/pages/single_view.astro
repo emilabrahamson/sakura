@@ -7,6 +7,11 @@ const options = {
     },
 };
 
+const response = await fetch(url, options);
+const events = await response.json();
+
+
+
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -26,6 +31,7 @@ import Layout from "../layouts/Layout.astro";
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus dolor soluta, pariatur delectus dignissimos itaque. Culpa cumque sunt molestiae, facilis reprehenderit aut porro repellendus quam autem pariatur hic voluptas officiis facere distinctio doloribus alias eius aliquam sit illum quis. Delectus aperiam consequatur quae vel maxime?</p>
     
 <img src="../icons/svbubble.png" alt="background"></div>
+<!-- <img class="swgren" src="../img/gren.png" alt="swgren"> -->
 <h2 class="center">SEE MORE</h2>
 <div id="grid1-1-1">
     <section>  <a href="#"><img src="https://source.unsplash.com/random/400x200?sig=1" alt=""><p>Tea drinking</p></a></section>
