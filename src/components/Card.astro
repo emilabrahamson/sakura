@@ -1,1 +1,112 @@
+---
+const {link, img, time, name, artist} = Astro.props;
+---
+<article>
+    <a href={link}>
+        <div>
+            <img src={img} alt="Billede af aktivitet">
+            <p class="tidspunkt">{time}</p>
+        </div>
+        <h4>{name}</h4>
+        <p>{artist}</p>
+    </a>
+</article>
 
+<style>
+    article {
+        display: flex;
+        justify-content: center;
+
+        background-image: url("../icons/bubble.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        height: 280px;
+        width: 280px;
+    }
+
+    article a {
+        text-decoration: none;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    article h4 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: black;
+
+        margin: 0;
+    }
+
+    article p {
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: black;
+
+        margin: 0;
+    }
+
+    div{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+
+        margin-top: 20px;
+    }
+
+    div img {
+        grid-row: 1;
+        grid-column: 1;
+
+        width: 180px;
+
+        object-fit: contain;
+
+        border-radius: 3px;
+    }
+
+    div p {
+        grid-row: 1;
+        grid-column: 1;
+        z-index: 2;
+
+        font-size: ;
+        color: white;
+        background-color: #FE908F;
+
+        border-radius: 20px;
+        padding: 0px 10px 0px 10px;
+
+
+        place-self: center;
+    }
+
+    @media (min-width: 768px) {
+        article {
+            height: 350px;
+            width: 350px;
+        }
+
+        article h4 {
+            font-size: 1.5rem;
+        }
+
+        article p {
+            font-size: 1rem;
+        }
+
+        div img {
+            width: 230px;
+        }
+
+        div p {
+            font-size: 1rem;
+        }
+    }
+</style>

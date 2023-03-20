@@ -1,12 +1,188 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Shelf from "../components/Shelf.astro";
+import { timerMessage } from "astro/dist/core/logger/core";
+
+// Api url og key
+const url = "https://mnrbumhbdeqyiuvlivuo.supabase.co/rest/v1/events";
+
+const options = {
+    headers: {
+        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ucmJ1bWhiZGVxeWl1dmxpdnVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg3MDE0MDgsImV4cCI6MTk5NDI3NzQwOH0.-G8xa9L5ZoWsA63QnJjFw-CUp8sfkdMxziBbhoWKnq8",
+    },
+};
+
+// Henter data fra API
+const response = await fetch(url, options);
+const events = await response.json();
+
+// Lørdag Sortering af scene
+const sa_Mainstage = events.filter((event) => event.scene == "Main stage" && event.date == "22/04/2023");
+const sa_Secondstage = events.filter((event) => event.scene == "Second stage" && event.date == "22/04/2023");
+const sa_Onthelawn = events.filter((event) => event.scene == "On the lawn" && event.date == "22/04/2023");
+
+// Lørdag Sortering efter tid
+const sort_sa_Mainstage = sa_Mainstage.sort((a, b) => {
+  if (a.time < b.time) return -1;
+  if (a.time > b.time) return 1;
+  return 0;
+});
+
+const sort_sa_Secondstage = sa_Secondstage.sort((a, b) => {
+  if (a.time < b.time) return -1;
+  if (a.time > b.time) return 1;
+  return 0;
+});
+
+const sort_sa_Onthelawn = sa_Onthelawn.sort((a, b) => {
+  if (a.time < b.time) return -1;
+  if (a.time > b.time) return 1;
+  return 0;
+});
+
+// Søndag Sortering af scene
+const su_Mainstage = events.filter((event) => event.scene == "Main stage" && event.date == "23/04/2023");
+const su_Secondstage = events.filter((event) => event.scene == "Second stage" && event.date == "23/04/2023");
+const su_Onthelawn = events.filter((event) => event.scene == "On the lawn" && event.date == "23/04/2023");
+
+// Søndag Sortering efter tid
+const sort_su_Mainstage = su_Mainstage.sort((a, b) => {
+  if (a.time < b.time) return -1;
+  if (a.time > b.time) return 1;
+  return 0;
+});
+
+const sort_su_Secondstage = su_Secondstage.sort((a, b) => {
+  if (a.time < b.time) return -1;
+  if (a.time > b.time) return 1;
+  return 0;
+});
+
+const sort_su_Onthelawn = su_Onthelawn.sort((a, b) => {
+  if (a.time < b.time) return -1;
+  if (a.time > b.time) return 1;
+  return 0;
+});
 ---
 <Layout title="Program">
   <main>
-    <h1>Program</h1>
-    <h2>Saturday</h2>
-    <p></p>
+    <h1>Program 2023</h1>
+    <div id="wrapper" >
+     <div>
+        <h2>Saturday</h2>
+        <p>22. April </p>
+        <section id="saturday" class="program_wrapper">
+          <h3>Main Stage</h3>
+          <Shelf scene={sort_sa_Mainstage} />
+          <h3>Second Stage</h3>
+          <Shelf scene={sort_sa_Secondstage} />
+          <h3>On The Lawn</h3>
+          <Shelf scene={sort_sa_Onthelawn} />
+        </section>
+     </div>
+     <div>
+      <h2>Sunday</h2>
+      <p>23. April </p>
+      <section id="sunday" class="program_wrapper">
+        <h3>Main Stage</h3>
+        <Shelf scene={sort_su_Mainstage} />
+        <h3>Second Stage</h3>
+        <Shelf scene={sort_su_Secondstage} />
+        <h3>On The Lawn</h3>
+        <Shelf scene={sort_su_Onthelawn} />
+      </section>
+    </div>
+    </div>
 
   </main>
 </Layout>
+
+<style>
+  main {
+    margin-left: 5%;
+  }
+  #wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+
+    gap: 30px;
+    text-align: center;
+
+    margin-bottom: 50px;
+  }
+
+  h2 {
+    margin: 0;
+    color: #5E7468;
+  }
+
+  #wrapper > div > p {
+    margin: 0;
+  }
+
+  h3 {
+    margin: 0;
+
+    color: #5E7468;
+    font-weight: 400;
+  }
+
+  
+  #saturday {
+    grid-column: 1;
+  }
+
+  #sunday {
+    grid-column: 2;
+  }
+
+  .program_wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .shelf {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    row-gap: 10px;
+  }
+
+  @media (min-width: 768px) {
+    main{
+      max-width: 1400px;
+      margin: auto;
+    }
+
+    #wrapper {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 10px;
+
+      overflow-x: unset;
+    }
+
+    h2 {
+      text-align: start;
+    }
+
+    #wrapper > div > p {
+      text-align: start;
+    }
+
+    .shelf {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 330px));
+      column-gap: 40px;
+    }
+  }
+</style>
+
+
  

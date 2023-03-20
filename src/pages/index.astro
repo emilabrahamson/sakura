@@ -11,7 +11,6 @@ import Layout from '../layouts/Layout.astro';
 			    <p>Join us for a lively and colorful celebration of Japanese culture at our annual Sakura festival!</p>
 			    <a class="forside_knap" href="program">2023 Program 	&#8594</a>
 			</div>
-			
 			<img src="../icons/bubble.svg" alt="baggrundsgrafik">
 		</section>
 		<img class="forsidegren" src="../img/gren.png" alt="forsidegren">
@@ -33,6 +32,11 @@ import Layout from '../layouts/Layout.astro';
 	main {
 		max-width:1200px;
 		margin: auto;
+		overflow: hidden;
+	}
+
+	h1 {
+		padding-top: 30px;
 	}
 
 	.forside_knap {
@@ -58,7 +62,10 @@ import Layout from '../layouts/Layout.astro';
 	.bubble_grid img {
 		grid-column: 1 /span 2;
 		grid-row: 1;
-		width: 400px;
+		width: 430px;
+		
+		position: absolute;
+		left: -10%;
 	}
 
 	.grid_flex {
@@ -73,11 +80,10 @@ import Layout from '../layouts/Layout.astro';
 	.forsidegren {
 		width: 50%;
 		z-index: 4;
-		left: 10%;
+		left: 20%;
 		top: 15%;
 		position: absolute;
 		rotate: 30deg;
-		overflow: hidden;
 
 	}
 
@@ -85,7 +91,6 @@ import Layout from '../layouts/Layout.astro';
 		display: grid;
 		grid-template-columns: 1fr;
 		margin-top: 30px;
-
 	}
 	
 	.grid_flex1 {

@@ -1,0 +1,38 @@
+---
+import Card from "./Card.astro";
+const {scene} = Astro.props;
+---
+
+<div class="shelf">
+   {
+    scene.map((event) => (
+      <Card
+        link={"/events/" + event.slug}
+        img={"../img/" + event.img}
+        time={event.time}
+        name={event.name}
+        artist={event.artist}
+      />
+    ))
+   }
+</div>
+
+<style>
+    .shelf {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    row-gap: 10px;
+  }
+
+  @media (min-width: 768px) {
+
+    .shelf {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 330px));
+      column-gap: 40px;
+    }
+  }
+</style>
