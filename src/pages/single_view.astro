@@ -1,5 +1,6 @@
 ---
-const url = "https://mnrbumhbdeqyiuvlivuo.supabase.co/rest/v1/events";
+const id = 1;
+const url = `https://mnrbumhbdeqyiuvlivuo.supabase.co/rest/v1/events/${id}`;
 
 const options = {
     headers: {
@@ -8,7 +9,21 @@ const options = {
 };
 
 const response = await fetch(url, options);
-const events = await response.json();
+const events = await response.json(); 
+
+function getEvent(){
+    console.log("test");
+  fetch(url)
+    .then((res) => res.json())
+    .then(visEvent);
+} 
+
+function visEvent (){
+    console.log("visEvents")
+
+}
+
+getEvent();
 
 
 
