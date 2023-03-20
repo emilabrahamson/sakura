@@ -1,7 +1,7 @@
 ---
 // const urlParams = new URLSearchParams(window.location.search);
 // const id = urlParams.get("id");
-
+import Layout from "../layouts/Layout.astro";
 const id = 1;
 const url = `https://mnrbumhbdeqyiuvlivuo.supabase.co/rest/v1/events/${id}`;
 
@@ -35,7 +35,7 @@ getEvent();
 
 
 
-import Layout from "../layouts/Layout.astro";
+
 ---
 
 <Layout title="Event">
