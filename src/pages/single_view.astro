@@ -1,5 +1,9 @@
 ---
-const url = "https://mnrbumhbdeqyiuvlivuo.supabase.co/rest/v1/events";
+// const urlParams = new URLSearchParams(window.location.search);
+// const id = urlParams.get("id");
+import Layout from "../layouts/Layout.astro";
+const id = 1;
+const url = `https://mnrbumhbdeqyiuvlivuo.supabase.co/rest/v1/events/${id}`;
 
 const options = {
     headers: {
@@ -7,7 +11,31 @@ const options = {
     },
 };
 
-import Layout from "../layouts/Layout.astro";
+const response = await fetch(url, options);
+const events = await response.json(); 
+
+function getEvent(){
+    console.log("test");
+  fetch(url)
+    .then((res) => res.json())
+    .then(visEvent);
+} 
+
+function visEvent (){
+    console.log("visEvents");
+    document.querySelector(".scene p").textContent = events.scene;
+    document.querySelector(".date p").textContent = events.date;
+    document.querySelector(".center h1").textContent = events.name;
+    document.querySelector(".center h2").textContent = events.artist;
+    document.querySelector(".desc p").textContent = events.description;
+}
+
+
+getEvent();
+
+
+
+
 ---
 
 <Layout title="Event">
@@ -17,20 +45,21 @@ import Layout from "../layouts/Layout.astro";
     <div id="grid1-2">
     <div id="container_sv">      
 <h3>Scene</h3>
-<p>Main stage</p>
-<h3>Show</h3>
-<p>Saturday, April 22</p>
+<p class="scene">Main stage</p>
+<h3>Date</h3>
+<p class="date">Saturday, April 22</p>
 <h3>More about the event</h3>
 <p>Link</p>
     </div>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus dolor soluta, pariatur delectus dignissimos itaque. Culpa cumque sunt molestiae, facilis reprehenderit aut porro repellendus quam autem pariatur hic voluptas officiis facere distinctio doloribus alias eius aliquam sit illum quis. Delectus aperiam consequatur quae vel maxime?</p>
+    <p class="desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus dolor soluta, pariatur delectus dignissimos itaque. Culpa cumque sunt molestiae, facilis reprehenderit aut porro repellendus quam autem pariatur hic voluptas officiis facere distinctio doloribus alias eius aliquam sit illum quis. Delectus aperiam consequatur quae vel maxime?</p>
     
 <img src="../icons/svbubble.png" alt="background"></div>
+<!-- <img class="swgren" src="../img/gren.png" alt="swgren"> -->
 <h2 class="center">SEE MORE</h2>
 <div id="grid1-1-1">
-    <section><img src="" alt=""><p>Tea drinking</p></section>
-    <section><img src="" alt=""><p>Tea drinking</p></section>
-    <section><img src="" alt=""><p>Tea drinking</p></section>
+    <section>  <a href="#"><img src="https://source.unsplash.com/random/400x200?sig=1" alt=""><p>Tea drinking</p></a></section>
+    <section>  <a href="#"><img src="https://source.unsplash.com/random/400x200?sig=1" alt=""><p>Tea drinking</p></a></section>
+    <section>  <a href="#"><img src="https://source.unsplash.com/random/400x200?sig=1" alt=""><p>Tea drinking</p></a></section>
 </div>
 </main>
 </Layout>
@@ -62,6 +91,6 @@ import Layout from "../layouts/Layout.astro";
     #grid1-1-1 {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        justify-self: center;
+        text-align: center;
     }
 </style>
