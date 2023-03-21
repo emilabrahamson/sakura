@@ -77,8 +77,8 @@ import Layout from "../layouts/Layout.astro";
       max-width: 100%;
     }
     .billederdesktop {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      display: flex;
+      /* grid-template-columns: 1fr 1fr 1fr; */
       display: block;
       gap: 10px;
       margin-top: 3%;
@@ -99,8 +99,8 @@ import Layout from "../layouts/Layout.astro";
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 8fr;
       column-gap: 50px;
-      margin-left: 23%;
-      margin-right: 23%;
+      max-width: 900px;
+      margin: auto;
 
       height: 1000px;
     }
