@@ -1,6 +1,27 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 
+export async function getStaticPaths() {
+    
+
+const url = `https://mnrbumhbdeqyiuvlivuo.supabase.co/rest/v1/events`;
+
+const options = {
+    headers: {
+        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ucmJ1bWhiZGVxeWl1dmxpdnVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg3MDE0MDgsImV4cCI6MTk5NDI3NzQwOH0.-G8xa9L5ZoWsA63QnJjFw-CUp8sfkdMxziBbhoWKnq8",
+    },
+}
+
+const response = await fetch(url, options);
+const data = await response.json(); 
+
+return data.map((event) => ({
+    params: {slug: event.slug},
+    props: {event},
+}));
+}
+
+const {event} = Astro.props;
 // Her indsættes funktion der henter data
 ---
 
