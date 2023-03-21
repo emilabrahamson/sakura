@@ -39,10 +39,12 @@ const {event} = Astro.props;
         <h3>Tidspunkt på dagen</h3>
         <p>{event.time}</p>
             </div>
+            <div id="text">
             <p class="desc">{event.description}</p>
-            
-        <img src="../icons/svbubble.png" alt="background"></div>
-        <!-- <img class="swgren" src="../img/gren.png" alt="swgren"> -->
+            <img class="swgren" src="../img/gren.png" alt="swgren"></div>
+        <img src="../icons/svbubble.png" alt="background">
+    </div>
+        
         <h2 class="center">SEE MORE</h2>
         <div id="grid1-1-1">
             <section>  <a href="#"><img src="../public/img/kendama.webp" alt="kendama"><p>Kendama</p></a></section>
@@ -103,5 +105,14 @@ const {event} = Astro.props;
             #container_sv {
                 line-height: 2.5;
             }
-       
+        .swgren { 
+        max-width: 30%;
+        margin-right: 0%;
+        padding: 0%;
+        transform: rotate(-110deg);
+        display: -webkit-box;
+margin-left: auto;
+opacity: 30%;
+
+    }
         </style>
