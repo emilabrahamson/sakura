@@ -6,9 +6,9 @@ import Layout from "../layouts/Layout.astro";
   <main>
     <h1 class="overskriftmobil">ABOUT SAKURA FESTIVAL</h1>
     <div class="billedermobil">
-      <img src="../img/billede1.png" alt="Skal udskiftes med det rigte billede" />
-      <img src="../img/billede2.png" alt="Skal udskiftes med det rigte billede" />
-      <img src="../img/billede3.png" alt="Skal udskiftes med det rigte billede" />
+      <img src="../img/about1.webp" alt="Billede fra festivalen" />
+      <img src="../img/about2.webp" alt="Billede fra festivalen" />
+      <img src="../img/about3.webp" alt="Billede fra festivalen" />
     </div>
     <div class="tekst">
       <h1 class="overskriftdesktop">ABOUT SAKURA FESTIVAL</h1>
@@ -23,9 +23,9 @@ import Layout from "../layouts/Layout.astro";
       <img src="../icons/bubble.svg" alt="Bagrundsgarfik" />
     </div>
     <div class="billederdesktop">
-      <img src="../img/billede1.png" alt="Skal udskiftes med det rigte billede" />
-      <img src="../img/billede2.png" alt="Skal udskiftes med det rigte billede" />
-      <img src="../img/billede3.png" alt="Skal udskiftes med det rigte billede" />
+      <img src="../img/about1.webp" alt="Billede fra festivalen" />
+      <img src="../img/about2.webp" alt="Billede fra festivalen" />
+      <img src="../img/about3.webp" alt="Billede fra festivalen" />
     </div>
   </main>
 </Layout>
@@ -78,8 +78,9 @@ import Layout from "../layouts/Layout.astro";
     }
     .billederdesktop {
       display: flex;
-      /* grid-template-columns: 1fr 1fr 1fr; */
-      display: block;
+      grid-template-columns: 1fr 1fr 1fr;
+      /* display: block; */
+      max-width: 28%;
       gap: 10px;
       margin-top: 3%;
       margin-bottom: 5%;
@@ -99,8 +100,8 @@ import Layout from "../layouts/Layout.astro";
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 8fr;
       column-gap: 50px;
-      max-width: 900px;
       margin: auto;
+      max-width: 1000px;
 
       height: 1000px;
     }
@@ -117,6 +118,13 @@ import Layout from "../layouts/Layout.astro";
     }
     .overskriftmobil {
       display: none;
+    }
+    .tekst1 {
+      max-width: 430px;
+      justify-self: end;
+    }
+    .tekst2 {
+      max-width: 430px;
     }
   }
 </style>
