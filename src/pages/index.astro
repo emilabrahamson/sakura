@@ -11,7 +11,8 @@ import Layout from '../layouts/Layout.astro';
 			    <p>Join us for a lively and colorful celebration of Japanese culture at our annual Sakura festival!</p>
 			    <a class="forside_knap" href="program">2023 Program 	&#8594</a>
 			</div>
-			<img src="../icons/bubble.svg" alt="baggrundsgrafik">
+			<img class="forsideblomt" src="../icons/blomstforside.png" alt="blomstforside">
+			<img class="bubble" src="../icons/bubble.svg" alt="baggrundsgrafik">
 		</section>
 		<img class="forsidegren" src="../img/gren.png" alt="forsidegren">
 
@@ -21,7 +22,7 @@ import Layout from '../layouts/Layout.astro';
 				<p>Post Festival Video</p>
 				<iframe src="https://www.youtube.com/embed/vZGJPqfaOEA" title="Sakura Festival 2022 - See You Next Year :)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 			</div>
-			<img src="../icons/bubble.svg" alt="baggrundsgrafik">
+			<img class="bubblevideo" src="../icons/bubble.svg" alt="baggrundsgrafik">
 
 		</section>
 	</main>
@@ -59,7 +60,7 @@ import Layout from '../layouts/Layout.astro';
 		margin-bottom: 30px;
 	}
 
-	.bubble_grid img {
+	.bubble {
 		grid-column: 1 /span 2;
 		grid-row: 1;
 		width: 430px;
@@ -90,7 +91,8 @@ import Layout from '../layouts/Layout.astro';
 	.bubble_grid1 {
 		display: grid;
 		grid-template-columns: 1fr;
-		margin-top: 30px;
+		margin-top: 150px;
+		margin-bottom: 50px;
 	}
 	
 	.grid_flex1 {
@@ -103,7 +105,7 @@ import Layout from '../layouts/Layout.astro';
 	
 	}
 
-	.bubble_grid1 img {
+	.bubblevideo {
 		grid-column: 1;
 		grid-row: 1;
 		width: 400px;
@@ -120,6 +122,46 @@ iframe {
 .bubble_grid1 h2 {
 padding-top: 20px;
 margin-bottom: 0;
+}
+
+.forsideblomt {
+	display: none;
+}
+
+@media (min-width: 768px) {
+
+	.bubble {
+		width: 40%;
+		top: 17%;
+		left: 10%;
+	}
+	.bubble_grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.forsidegren {
+		display: none;
+	}
+
+	.forsideblomt {
+	display: block;
+	grid-row: 1;
+	grid-column: 2;
+	justify-self: center;
+}
+
+.bubblevideo {
+	position: absolute;
+	width: 820px;
+	top: 92%;
+	left: 23%;
+}
+
+.bubble_grid1 {
+	margin-top: 150px;
+	margin-bottom: 300px;
+}
 }
 
 
