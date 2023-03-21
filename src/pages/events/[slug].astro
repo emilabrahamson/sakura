@@ -1,6 +1,9 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 
+export async function getStaticPaths() {
+    
+
 const url = `https://mnrbumhbdeqyiuvlivuo.supabase.co/rest/v1/events`;
 
 const options = {
@@ -10,7 +13,14 @@ const options = {
 }
 
 const response = await fetch(url, options);
-const events = await response.json(); 
+const data = await response.json(); 
+
+return data.map((event) => ({
+    params: {slug: event.slug},
+    props: {event},
+}));
+}
+
 
 // Her indsættes funktion der henter data
 ---
