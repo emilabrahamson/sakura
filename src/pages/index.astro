@@ -7,23 +7,21 @@ import Layout from '../layouts/Layout.astro';
 	<main>
 		<section class="bubble_grid">
 			<div class="grid_flex">
-				<h1>Sakura Festival 2023</h1>
-			    <p>Join us for a lively and colorful celebration of Japanese culture at our annual Sakura festival!</p>
-			    <a class="forside_knap" href="program">2023 Program 	&#8594</a>
+				<div>
+					<h1>Sakura Festival 2023</h1>
+				    <p>Join us for a lively and colorful celebration of Japanese culture at our annual Sakura festival!</p>
+				    <a class="forside_knap" href="program">2023 Program 	&#8594</a>
+				</div>
 			</div>
 			<img class="forsideblomt" src="../icons/blomstforside.png" alt="blomstforside">
-			<img class="bubble" src="../icons/bubble.svg" alt="baggrundsgrafik">
 		</section>
 		<img class="forsidegren" src="../img/gren.png" alt="forsidegren">
-
 		<section class="bubble_grid1">
 			<div class="grid_flex1">
 				<h2>Sakura Festival 2022</h2>
 				<p>Post Festival Video</p>
 				<iframe src="https://www.youtube.com/embed/vZGJPqfaOEA" title="Sakura Festival 2022 - See You Next Year :)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 			</div>
-			<img class="bubblevideo" src="../icons/bubble.svg" alt="baggrundsgrafik">
-
 		</section>
 	</main>
 </Layout>
@@ -54,6 +52,13 @@ import Layout from '../layouts/Layout.astro';
 	.bubble_grid {
 		display: grid;
 		grid-template-columns: 3fr 1fr;
+
+		min-height: 400px;
+
+		background-image: url(../icons/bubble.svg);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
 	}
 
 	.bubble_grid p {
@@ -73,8 +78,12 @@ import Layout from '../layouts/Layout.astro';
 		grid-column: 1;
 		grid-row: 1;
 		z-index: 3;
-		align-self: center;
+		align-self: start;
+
+		padding-top: 20px;
 		padding-left: 22%;
+
+		background-image: none;
 	}
 
 	
@@ -91,8 +100,15 @@ import Layout from '../layouts/Layout.astro';
 	.bubble_grid1 {
 		display: grid;
 		grid-template-columns: 1fr;
-		margin-top: 150px;
+		margin-top: 0px;
 		margin-bottom: 50px;
+
+		min-height: 400px;
+
+		background-image: url(../icons/bubble.svg);
+		background-repeat: no-repeat;
+		background-position: start;
+		background-size: contain;
 	}
 	
 	.grid_flex1 {
@@ -138,6 +154,26 @@ margin-bottom: 0;
 	.bubble_grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
+
+		background-image: none;
+	}
+
+	.grid_flex {
+		padding-left: 110px;
+		padding-top: 90px;
+
+		min-height: 400px;
+
+		background-image: url(../icons/bubble.svg);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
+	}
+
+	.grid_flex div {
+		max-width: 400px;
+
+		
 	}
 
 	.forsidegren {
@@ -159,8 +195,17 @@ margin-bottom: 0;
 }
 
 .bubble_grid1 {
-	margin-top: 150px;
-	margin-bottom: 300px;
+	margin-top: 80px;
+	margin-bottom: 50px;
+	
+	min-height: 700px;
+
+	background-position: center;
+
+}
+
+.grid_flex1 {
+	padding-top: 50px;
 }
 }
 
