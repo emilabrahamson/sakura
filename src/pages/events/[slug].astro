@@ -26,7 +26,59 @@ const {event} = Astro.props;
 ---
 
 <Layout title={event.slug}>
-    <main>
 
-    </main>
-</Layout>
+        <main>
+            <h2 class="center">{event.artist}</h2>
+            <h1 class="center">{event.name}</h1>
+            <div id="grid1-2">
+            <div id="container_sv">      
+        <h3>Scene</h3>
+        <p class="scene">{event.scene}</p>
+        <h3>Date</h3>
+        <p class="date">{event.date}</p>
+        <h3>Tidspunkt på dagen</h3>
+        <p>{event.time}</p>
+            </div>
+            <p class="desc">{event.description}</p>
+            
+        <img src="../icons/svbubble.png" alt="background"></div>
+        <!-- <img class="swgren" src="../img/gren.png" alt="swgren"> -->
+        <h2 class="center">SEE MORE</h2>
+        <div id="grid1-1-1">
+            <section>  <a href="#"><img src="https://source.unsplash.com/random/400x200?sig=1" alt=""><p>Tea drinking</p></a></section>
+            <section>  <a href="#"><img src="https://source.unsplash.com/random/400x200?sig=1" alt=""><p>Tea drinking</p></a></section>
+            <section>  <a href="#"><img src="https://source.unsplash.com/random/400x200?sig=1" alt=""><p>Tea drinking</p></a></section>
+        </div>
+        </main>
+        </Layout>
+        <style>
+             main {
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+             #grid1-2 {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+            }
+        #grid1-2 img {
+            display: block;
+            grid-column: 1;
+            grid-row: 1 /span 2;  
+            width: 300px;
+            }
+           #container_sv {
+                z-index: 3;
+                grid-column: 1;
+                grid-row: 1 /span 2;
+                margin-left: 15%;
+                margin-top: 25%;
+            }
+            .center {
+                text-align: center;
+            }
+            #grid1-1-1 {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                text-align: center;
+            }
+        </style>
