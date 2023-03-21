@@ -1,39 +1,6 @@
 ---
-// const urlParams = new URLSearchParams(window.location.search);
-// const id = urlParams.get("id");
+
 import Layout from "../layouts/Layout.astro";
-const id = 1;
-const url = `https://mnrbumhbdeqyiuvlivuo.supabase.co/rest/v1/events/${id}`;
-
-const options = {
-    headers: {
-        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ucmJ1bWhiZGVxeWl1dmxpdnVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg3MDE0MDgsImV4cCI6MTk5NDI3NzQwOH0.-G8xa9L5ZoWsA63QnJjFw-CUp8sfkdMxziBbhoWKnq8",
-    },
-};
-
-const response = await fetch(url, options);
-const events = await response.json(); 
-
-function getEvent(){
-    console.log("test");
-  fetch(url)
-    .then((res) => res.json())
-    .then(visEvent);
-} 
-
-function visEvent (){
-    console.log("visEvents");
-    document.querySelector(".scene p").textContent = events.scene;
-    document.querySelector(".date p").textContent = events.date;
-    document.querySelector(".center h1").textContent = events.name;
-    document.querySelector(".center h2").textContent = events.artist;
-    document.querySelector(".desc p").textContent = events.description;
-}
-
-
-getEvent();
-
-
 
 
 ---
@@ -93,4 +60,7 @@ getEvent();
         grid-template-columns: 1fr 1fr 1fr;
         text-align: center;
     }
+    #container_sv {
+                line-height: 2.5;
+            }
 </style>

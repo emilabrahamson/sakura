@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Shelf from "../components/Shelf.astro";
+
+
+// Api url og key
+const url = "https://mnrbumhbdeqyiuvlivuo.supabase.co/rest/v1/events";
+
+const options = {
+    headers: {
+        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ucmJ1bWhiZGVxeWl1dmxpdnVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg3MDE0MDgsImV4cCI6MTk5NDI3NzQwOH0.-G8xa9L5ZoWsA63QnJjFw-CUp8sfkdMxziBbhoWKnq8",
+    },
+};
+
+// Henter data fra API
+const response = await fetch(url, options);
+const events = await response.json();
+
+// Sortering af dag og scene
+const sa_Mainstage = events.filter((event) => event.scene == "Main stage" && event.date == "22/04/2023");
+
+
+// Lørdag Sortering efter tid
+const sort_sa_Mainstage = sa_Mainstage.sort((a, b) => {
+  if (a.time < b.time) return -1;
+  if (a.time > b.time) return 1;
+  return 0;
+});
+---
+
+<Layout title="Komponenter">
+    <main>
+        <h1>Komponenter</h1>
+        <Shelf scene={sa_Mainstage} />
+    </main>
+</Layout>
