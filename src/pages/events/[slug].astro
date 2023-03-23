@@ -39,15 +39,17 @@ const {event} = Astro.props;
         <h3>Tidspunkt på dagen</h3>
         <p>{event.time}</p>
             </div>
+            <div id="text">
             <p class="desc">{event.description}</p>
-            
-        <img src="../icons/svbubble.png" alt="background"></div>
-        <!-- <img class="swgren" src="../img/gren.png" alt="swgren"> -->
+            <img class="swgren" src="../img/gren.png" alt="swgren"></div>
+        <img src="../icons/svbubble.png" alt="background">
+    </div>
+        
         <h2 class="center">SEE MORE</h2>
         <div id="grid1-1-1">
-            <section>  <a href="#"><img src="https://source.unsplash.com/random/400x200?sig=1" alt=""><p>Tea drinking</p></a></section>
-            <section>  <a href="#"><img src="https://source.unsplash.com/random/400x200?sig=1" alt=""><p>Tea drinking</p></a></section>
-            <section>  <a href="#"><img src="https://source.unsplash.com/random/400x200?sig=1" alt=""><p>Tea drinking</p></a></section>
+            <section>  <a href="#"><img src="../public/img/kendama.webp" alt="kendama"><p>Kendama</p></a></section>
+            <section>  <a href="#"><img src="../public/img/animedrawingworkshop.webp" alt=""><p>Anime Drawing Workshop</p></a></section>
+            <section>  <a href="#"><img src="../public/img/Wadaiko.webp" alt="Wadaiko"><p>Wadaiko</p></a></section>
         </div>
         </main>
         </Layout>
@@ -79,21 +81,40 @@ const {event} = Astro.props;
                 margin-top: 25%;
             } 
                 .desc {
-                margin-right: 7%;
+                margin-right: 15%;
                 line-height: 1.8;
             }
         }
             .center {
                 text-align: center;
-                padding: 1%;
+                padding-bottom: 1%;
             }
             #grid1-1-1 {
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr;
                 text-align: center;
+                padding-bottom: 5%;
+            }
+            #grid1-1-1 img{
+               max-height: 250px;
+               padding-right: 5%;
+               padding-left: 5%;
+            
+               padding-bottom: 2%;
             }
             #container_sv {
                 line-height: 2.5;
             }
-       
+        .swgren { 
+        max-width: 100%;
+        margin-right: -5%;
+        padding: 0%;
+        transform: rotate(-70deg);
+        display: -webkit-box;
+margin-left: auto;
+opacity: 30%;
+
+
+
+    }
         </style>
